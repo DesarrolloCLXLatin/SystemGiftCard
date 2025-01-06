@@ -1,0 +1,15 @@
+/* src/styles/css/layout.css */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-normal),
+                color var(--transition-normal);
+    min-height: 100vh;
+  }
+  
+  .layout-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    min-height: 100vh;
+  }
+  

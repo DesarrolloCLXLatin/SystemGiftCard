@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+argon2-cffi
+argon2
+PyJWT
+MySQL-python
+python-dotenv

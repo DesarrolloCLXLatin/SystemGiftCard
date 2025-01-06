@@ -1,0 +1,77 @@
+/* Chart styles */
+.chart-container {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md;
+}
+
+.chart-tooltip {
+  @apply bg-white dark:bg-gray-700 
+         text-gray-600 dark:text-gray-200
+         shadow-lg rounded-lg p-2
+         border border-gray-200 dark:border-gray-600;
+}
+
+/* Calendar styles */
+.calendar {
+  @apply bg-white dark:bg-gray-800 
+         rounded-lg shadow-md p-4
+         border border-gray-200 dark:border-gray-600;
+}
+
+.calendar-header {
+  @apply flex items-center justify-between
+         mb-4 px-4;
+}
+
+.calendar-navigation {
+  @apply flex gap-2;
+}
+
+.calendar-nav-button {
+  @apply p-2 rounded-lg
+         text-gray-500 hover:text-gray-900
+         dark:text-gray-400 dark:hover:text-white
+         bg-transparent hover:bg-gray-100
+         dark:hover:bg-gray-700
+         transition-colors duration-200;
+}
+
+/* Kanban styles */
+.kanban-board {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6 p-6;
+}
+
+.kanban-column {
+  @apply bg-gray-50 dark:bg-gray-800
+         rounded-lg p-4
+         border border-gray-200 dark:border-gray-700;
+}
+
+.kanban-card {
+  @apply bg-white dark:bg-gray-700
+         rounded-lg p-4 mb-4
+         shadow-sm
+         border border-gray-200 dark:border-gray-600
+         cursor-move;
+}
+
+.kanban-card.dragging {
+  @apply opacity-50 rotate-3
+         shadow-md;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+  
+  .layout-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar-link {
+    font-size: 1rem;
+  }
+}

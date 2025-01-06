@@ -1,0 +1,261 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../../assets/images/bg_login.png') no-repeat center center/cover;
+  animation: fadeIn 1s;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: -2rem;
+}
+
+.register-header img {
+  width: 300px;
+  margin-bottom: 1rem;
+}
+
+.register-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5c8b9e;
+}
+
+.register-form {
+  background-color: transparent;
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+  animation: zoomIn 1s;
+}
+
+.register-form h2 {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 800;
+  margin-bottom: 1.5rem; /* 24px */
+  color: #333;
+}
+
+.register-form input,
+.register-form select {
+  color: black;
+  margin-bottom: 1rem; /* 16px */
+  padding: 0.75rem; /* 12px */
+  border: 1px solid #ccc;
+  border-radius: 0.25rem; /* 4px */
+  width: 100%;
+}
+
+.register-form button {
+  padding: 0.5rem 1rem; /* 8px 16px */
+  border-radius: 2rem; /* 4px */
+  transition: background-color 0.3s;
+}
+
+.register-form .btn-primary {
+  background-color: #3b82f6; /* blue-600 */
+  color: #fff;
+}
+
+.register-form .btn-primary:hover {
+  background-color: #2563eb; /* blue-700 */
+}
+
+.register-form .btn-secondary {
+  background-color: #6b7280; /* gray-600 */
+  color: #fff;
+}
+
+.register-form .btn-secondary:hover {
+  background-color: #4b5563; /* gray-700 */
+}
+
+.register-form .btn-success {
+  background-color: #16a34a; /* green-600 */
+  color: #fff;
+}
+
+.register-form .btn-success:hover {
+  background-color: #15803d; /* green-700 */
+}
+
+.register-form .btn-danger {
+  background-color: #ef4444; /* red-500 */
+  color: #fff;
+}
+
+.register-form .btn-danger:hover {
+  background-color: #dc2626; /* red-700 */
+}
+
+/* Estilos para el input de archivo */
+.file-input-container {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 1rem; /* 16px */
+}
+
+.file-input-container input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3b82f6; /* blue-600 */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem; /* 4px */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.file-input-label:hover {
+  background-color: #2563eb; /* blue-700 */
+}
+
+/* Estilos para el modal de avatar */
+.avatar-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.avatar-modal-content {
+  background-color: #fff;
+  padding: 1.5rem; /* 24px */
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+.avatar-modal-content h3 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  margin-bottom: 1rem; /* 16px */
+  color: #333;
+}
+
+.avatar-modal-content .avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; /* 16px */
+}
+
+.avatar-modal-content .avatar-grid img {
+  cursor: pointer;
+  padding: 0.5rem; /* 8px */
+  border: 1px solid #ccc;
+  border-radius: 0.25rem; /* 4px */
+  width: 80px; /* Ajustar el tamaño de los avatares */
+  height: 80px; /* Ajustar el tamaño de los avatares */
+}
+
+.avatar-modal-content .avatar-grid img.selected {
+  border-color: #3b82f6; /* blue-500 */
+}
+
+/* Aumentar el tamaño del preview del avatar */
+.avatar-preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrar verticalmente */
+  margin-left: 10rem;
+  margin-bottom: 2rem; /* 16px */
+  width: 120px; /* Aumentar el tamaño del contenedor */
+  height: 120px; /* Aumentar el tamaño del contenedor */
+  border-radius: 50%;
+  overflow: hidden; /* Asegurarse de que la imagen no se salga del contenedor */
+  border: 2px solid #ccc;
+}
+
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajustar la imagen al contenedor */
+  display: block;
+}
+
+.avatar-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem; /* 16px */
+}
+
+/* Estilo para agrupar botones con espacio entre ellos */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; /* Espacio entre botones */
+}
+
+/* Centramos el botón de cerrar en el modal */
+.avatar-modal-content .btn-danger {
+  display: block;
+  margin: 1rem auto 0 auto; /* Centrar el botón con margen superior */
+  width: fit-content;
+}
+
+.input-group {
+  position: relative;
+}
+
+.info-icon {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Tooltip styling */
+.react-tooltip {
+  background-color: #333 !important;
+  color: #fff !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  font-size: 0.875rem !important; /* 14px */
+}
+
+.react-tooltip::after {
+  border-top-color: #333 !important;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,55 @@
+/* src/styles/css/variables.css */
+:root {
+    /* Core colors */
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #0284c7;
+    --color-primary-700: #0369a1;
+    
+    /* Neutral colors */
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    
+    /* Spacing */
+    --spacing-1: 0.25rem;  /* 4px */
+    --spacing-2: 0.5rem;   /* 8px */
+    --spacing-3: 0.75rem;  /* 12px */
+    --spacing-4: 1rem;     /* 16px */
+    --spacing-5: 1.25rem;  /* 20px */
+    --spacing-6: 1.5rem;   /* 24px */
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+  
+  /* Theme variables */
+  .light-theme {
+    --bg-color: var(--color-gray-50);
+    --text-color: var(--color-gray-900);
+    --sidebar-bg-color: var(--color-gray-100);
+    --sidebar-text-color: var(--color-gray-800);
+    --sidebar-hover-color: var(--color-gray-200);
+  }
+  
+  .dark-theme {
+    --bg-color: var(--color-gray-900);
+    --text-color: var(--color-gray-50);
+    --sidebar-bg-color: var(--color-gray-800);
+    --sidebar-text-color: var(--color-gray-100);
+    --sidebar-hover-color: var(--color-gray-700);
+  }

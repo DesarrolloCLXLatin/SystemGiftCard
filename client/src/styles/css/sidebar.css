@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --transition-duration: 0.3s;
+  --border-radius: 50px;
+  --spacing-unit: 20px;
+}
+
+body.light {
+  --bg-color: #f0f0f0;
+  --text-color: #333;
+  --sidebar-bg-color: #fff;
+  --sidebar-text-color: #333;
+  --sidebar-hover-color: #ddd;
+}
+
+body.dark {
+  --bg-color: #181818;
+  --text-color: #f0f0f0;
+  --sidebar-bg-color: #333;
+  --sidebar-text-color: #f0f0f0;
+  --sidebar-hover-color: #444;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-duration), color var(--transition-duration);
+  z-index: 1000;
+}
+
+/* Theme Variables */
+.light {
+  --bg-color: #f0f0f0;
+  --text-color: #333;
+  --sidebar-bg: #fff;
+  --sidebar-text: #333;
+  --hover-bg: #ddd;
+}
+
+.dark {
+  --bg-color: #181818;
+  --text-color: #f0f0f0;
+  --sidebar-bg: #333;
+  --sidebar-text: #f0f0f0;
+  --hover-bg: #444;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-duration), color var(--transition-duration);
+  z-index: 1000;
+}
+
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1001;
+  transition: width var(--transition-duration) ease;
+}
+
+.sidebar-container.expanded {
+  width: var(--sidebar-width-expanded);
+}
+
+.sidebar-container.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.sidebar {
+  position: relative;
+  top: 5rem;
+  height: calc(160vh - var(--header-height));
+  width: 100%;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: 1rem;
+  transition: all var(--transition-duration);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+}
+
+.sidebar-header {
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.main-logo {
+  max-width: 150px;
+  height: auto;
+}
+
+.mini-logo {
+  max-width: 40px;
+  height: auto;
+}
+
+.admin-options {
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  font-size: 1.25rem;
+}
+
+.option-text {
+  margin-left: 0.75rem;
+  white-space: nowrap;
+}
+
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 50px;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.main-content {
+  margin-left: calc(var(--sidebar-width-collapsed) + -100px); /* Ajusta la distancia aquí */
+  padding: var(--spacing-unit);
+  transition: margin-left var(--transition-duration);
+}
+
+.main-content.content-expanded {
+  margin-left: calc(var(--sidebar-width-expanded) + -200px); /* Ajusta la distancia aquí */
+}
+
+.main-content.content-collapsed {
+  margin-left: calc(var(--sidebar-width-collapsed) + -60px); /* Ajusta la distancia aquí */
+}
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    transform: translateX(calc(-1 * var(--sidebar-width-collapsed)));
+  }
+
+  .sidebar-container.expanded {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .main-content.content-expanded,
+  .main-content.content-collapsed {
+    margin-left: 0;
+  }
+}
+
+/* Theme-specific styles */
+.light {
+  --sidebar-bg: #fff;
+  --sidebar-text: #333;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --sidebar-bg: #333;
+  --sidebar-text: #f0f0f0;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-item:hover {
+  background-color: var(--hover-bg);
+}
