@@ -1,186 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.mainContent {
-  margin-top: 60px;
-  padding: 1rem;
-  transition: margin-left 0.3s ease;
+:root {
+  /* Previous variables remain unchanged */
+  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --card-transition: all 0.3s ease;
+  --gradient-start: #f7fafc;
+  --gradient-end: #ffffff;
 }
 
-.mainContent.expanded {
-  margin-left: 250px; /* Ajusta según el ancho del sidebar expandido */
+.dark-theme {
+  /* Previous dark theme variables remain unchanged */
+  --card-hover-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
+  --gradient-start: #2d3748;
+  --gradient-end: #1a202c;
 }
 
-.mainContent.collapsed {
-  margin-left: 80px; /* Ajusta según el ancho del sidebar colapsado */
-}
+/* Previous styles remain unchanged until .top-stores-card */
 
-.title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-.card {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-}
-
-.cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cardTitle {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.menuButton {
+.top-stores-card, .top-users-card {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border: 1px solid var(--card-border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px var(--card-shadow-color);
+  transition: var(--card-transition);
+  overflow: hidden;
   position: relative;
 }
 
-.menuButtonToggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+.top-stores-card:hover, .top-users-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-hover-shadow);
 }
 
-.menuButtonIcon {
-  margin-left: 0.5rem;
-  width: 16px;
-  height: 16px;
+.top-stores-card .card-header, .top-users-card .card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--card-border-color);
+  position: relative;
 }
 
-.menuDropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-.menuDropdown ul {
-  list-style: none;
-  padding: 0;
+.top-stores-card .card-title, .top-users-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
   margin: 0;
-}
-
-.menuDropdown ul li {
-  padding: 0.5rem 1rem;
-}
-
-.menuDropdown ul li a {
-  text-decoration: none;
-  color: #333;
-}
-
-.cardContent {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
-
-.cardValueContainer {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.cardValue {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-right: 0.5rem;
+.top-stores-card .card-content, .top-users-card .card-content {
+  padding: 1.5rem;
 }
 
-.cardPercentage {
+/* Specific styles for the stores chart */
+.top-stores-card .recharts-cartesian-grid-horizontal line,
+.top-stores-card .recharts-cartesian-grid-vertical line {
+  stroke: var(--card-border-color);
+  stroke-opacity: 0.2;
+}
+
+.top-stores-card .recharts-bar-rectangle {
+  transition: opacity 0.3s ease;
+}
+
+.top-stores-card .recharts-bar-rectangle:hover {
+  opacity: 0.8;
+}
+
+/* Specific styles for the users table */
+.top-users-card table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 0.5rem;
+}
+
+.top-users-card thead tr {
+  background-color: var(--card-background-color);
+}
+
+.top-users-card th {
+  padding: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--card-border-color);
+  text-align: left;
+}
+
+.top-users-card td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--card-border-color);
   font-size: 0.875rem;
-  background-color: #e5e7eb;
-  color: #6b7280;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
 }
 
-.cardChart {
-  margin-top: 1rem;
+.top-users-card tbody tr {
+  transition: background-color 0.2s ease;
 }
 
-
-/* Estos estilos pueden ir en un archivo global.css o en el módulo AdminHome.module.css */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.top-users-card tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
-.dashboard-card {
-  animation: fadeIn 0.3s ease-out;
+.top-users-card tbody tr:last-child td {
+  border-bottom: none;
 }
 
-/* Estilos para el tooltip personalizado */
-.tooltip {
-  background-color: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  padding: 8px 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+/* Add subtle border radius to the table */
+.top-users-card .table-container {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--card-border-color);
 }
 
-/* Mejoras en la responsividad */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(1, 1fr);
+  .top-stores-card, .top-users-card {
+    margin-bottom: 1.5rem;
   }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1025px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
+  
+  .top-users-card table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
   }
 }
