@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --background-color: #f5f7fa;
+  --background-gradient-start: #f5f7fa;
+  --background-gradient-end: #e4e8eb;
+  --form-background: rgba(255, 255, 255, 0.9);
+  --form-border: rgba(255, 255, 255, 0.18);
+  --form-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --qr-card-background: white;
+  --qr-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --qr-card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --qr-code-container-background: white;
+  --qr-code-container-gradient-start: #3f51b5;
+  --qr-code-container-gradient-end: #2196f3;
+  --action-button-gradient-start: rgba(255,255,255,0.1);
+  --action-button-gradient-end: rgba(255,255,255,0.2);
+  --scroll-container-track: #f5f5f5;
+  --scroll-container-thumb: #90caf9;
+  --shimmer-background-start: #f6f7f8;
+  --shimmer-background-mid: #edeef1;
+  --shimmer-background-end: #f6f7f8;
+}
+
+body.dark {
+  --background-color: #1a202c;
+  --background-gradient-start: #2d3748;
+  --background-gradient-end: #1a202c;
+  --form-background: rgba(0, 0, 0, 0.9);
+  --form-border: rgba(0, 0, 0, 0.18);
+  --form-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.15);
+  --qr-card-background: #1a202c;
+  --qr-card-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  --qr-card-hover-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+  --qr-code-container-background: #1a202c;
+  --qr-code-container-gradient-start: #3f51b5;
+  --qr-code-container-gradient-end: #2196f3;
+  --action-button-gradient-start: rgba(0,0,0,0.1);
+  --action-button-gradient-end: rgba(0,0,0,0.2);
+  --scroll-container-track: #1a202c;
+  --scroll-container-thumb: #90caf9;
+  --shimmer-background-start: #1a202c;
+  --shimmer-background-mid: #2d3748;
+  --shimmer-background-end: #1a202c;
+}
+
+.qr-generator-container {
+  background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+  min-height: 100vh;
+  display: flex;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.form-container {
+  background: var(--form-background);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: var(--form-shadow);
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-5px);
+}
+
+.input-field {
+  border: none;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid var(--form-border);
+  border-radius: 50px;
+}
+
+.input-field:hover {
+  transform: translateX(5px);
+}
+
+.qr-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--qr-card-background);
+  border-radius: 15px;
+  box-shadow: var(--qr-card-shadow);
+}
+
+.qr-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--qr-card-hover-shadow);
+}
+
+.qr-code-container {
+  position: relative;
+  padding: 1rem;
+  background: var(--qr-code-container-background);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.qr-code-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--qr-code-container-gradient-start), var(--qr-code-container-gradient-end));
+  z-index: -1;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.qr-code-container:hover::before {
+  opacity: 1;
+}
+
+.action-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.action-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--action-button-gradient-start), var(--action-button-gradient-end));
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.action-button:hover::after {
+  transform: translateX(100%);
+}
+
+.scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-container-thumb) var(--scroll-container-track);
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: var(--scroll-container-track);
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-container-thumb);
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, var(--shimmer-background-start) 0%, var(--shimmer-background-mid) 20%, var(--shimmer-background-end) 40%, var(--shimmer-background-end) 100%);
+  background-size: 1000px 100%;
+}

@@ -4,6 +4,8 @@
   --transition-duration: 0.3s;
   --border-radius: 50px;
   --spacing-unit: 20px;
+  --sidebar-width-expanded: 250px;
+  --sidebar-width-collapsed: 80px;
 }
 
 body.light {
@@ -133,9 +135,36 @@ body {
   font-size: 1.25rem;
 }
 
+.icon-large {
+  font-size: 1.50rem; /* Ajusta el tamaño según sea necesario */
+}
+
 .option-text {
   margin-left: 0.75rem;
   white-space: nowrap;
+}
+
+.option-text-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.chevron-icon {
+  margin-left: auto;
+}
+
+.sub-options {
+  list-style-type: none;
+  padding-left: 20px; /* Ajusta según sea necesario */
+  margin: 0;
+  padding: 0;
+}
+
+.sub-option-item {
+  padding: 5px 0; /* Ajusta según sea necesario */
+  cursor: pointer;
 }
 
 .theme-toggle-button {
