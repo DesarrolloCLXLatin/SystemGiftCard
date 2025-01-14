@@ -1,4 +1,3 @@
-// src/routers/Routes.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -11,6 +10,12 @@ import HomeAdmin from '../pages/Home/AdminHome';
 import Sidebar from '../components/Sidebar';
 import Consulta from '../pages/Card/Consulta';
 import QRcode from '../pages/Card/QRGenerator';
+import GiftCard from '../pages/Card/GiftCard';
+import Beneficiary from '../pages/Services/Beneficiaries';
+import Permissions from '../pages/Services/Permissions';
+import Stores from '../pages/Services/Stores';
+import AdminUsersComponent from '../pages/Services/AdminUsers'; // Updated import statement
+import PropTypes from 'prop-types';
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -26,6 +31,10 @@ const PrivateRoute = ({ children }) => {
   );
 };
 
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export function MyRoutes() {
   return (
     <Router>
@@ -38,6 +47,11 @@ export function MyRoutes() {
         <Route path="/home/home-admin" element={<PrivateRoute><HomeAdmin /></PrivateRoute>} />
         <Route path="/card/consulta" element={<PrivateRoute><Consulta /></PrivateRoute>} />
         <Route path="/card/qr-generator" element={<PrivateRoute><QRcode /></PrivateRoute>} />
+        <Route path="/card/gift-card" element={<PrivateRoute><GiftCard /></PrivateRoute>} />
+        <Route path="/services/beneficiaries" element={<PrivateRoute><Beneficiary /></PrivateRoute>} />
+        <Route path="/services/permissions" element={<PrivateRoute><Permissions /></PrivateRoute>} />
+        <Route path="/services/stores" element={<PrivateRoute><Stores /></PrivateRoute>} />
+        <Route path="/services/adminusers" element={<PrivateRoute><AdminUsersComponent /></PrivateRoute>} /> {/* Updated route */}
       </Routes>
     </Router>
   );

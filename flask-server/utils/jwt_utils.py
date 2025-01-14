@@ -18,3 +18,4 @@ def decode_token(token):
         return None
     except jwt.InvalidTokenError:
         return None
+    

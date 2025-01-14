@@ -1,0 +1,449 @@
+/* Importar la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variables de color para temas claro y oscuro */
+:root {
+  --bg-color: #f9fafb;
+  --text-color: #1f2937;
+  --card-bg-color: #ffffff;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-bg-color: #3b82f6;
+  --button-hover-bg-color: #2563eb;
+  --input-bg-color: #ffffff;
+  --input-border-color: #d1d5db;
+  --table-header-bg-color: #f3f4f6;
+  --table-row-hover-bg-color: #f9fafb;
+  --switch-bg-color-active: #10b981;
+  --switch-bg-color-disabled: #ef4444;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1f2937;
+  --text-color: #f9fafb;
+  --card-bg-color: #374151;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --button-bg-color: #3b82f6;
+  --button-hover-bg-color: #2563eb;
+  --input-bg-color: #374151;
+  --input-border-color: #4b5563;
+  --table-header-bg-color: #4b5563;
+  --table-row-hover-bg-color: #374151;
+  --switch-bg-color-active: #10b981;
+  --switch-bg-color-disabled: #ef4444;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para el contenedor principal */
+.beneficiaries-container {
+  min-height: 100vh;
+  padding: 2rem;
+  margin-top: 10vh;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.space-y-8 > *:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+/* Estilos para el título principal */
+.text-3xl {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* Estilos para las tarjetas */
+.beneficiaries-card {
+  background-color: var(--card-bg-color);
+  box-shadow: var(--card-shadow);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.beneficiaries-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--input-border-color);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Update existing table styles */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--card-bg-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+/* Enhanced table header */
+.table-header {
+  background-color: var(--table-header-bg-color);
+}
+
+.table-head {
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* Enhanced table rows */
+.table-row {
+  transition: all 0.2s ease-in-out;
+}
+
+.table-row:hover {
+  background-color: var(--table-row-hover-bg-color);
+  transform: translateX(4px);
+}
+
+.table-cell {
+  padding: 1rem;
+  border-bottom: 1px solid var(--input-border-color);
+  text-align: center;
+}
+
+/* Last row in table body should not have border */
+.table-body tr:last-child .table-cell {
+  border-bottom: none;
+}
+
+/* Enhanced card styles */
+.beneficiaries-card {
+  background-color: var(--card-bg-color);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.beneficiaries-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Enhanced main card styles */
+.beneficiaries-main-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.beneficiaries-main-card:hover {
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Card header styles */
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--input-border-color);
+  background-color: var(--card-bg-color);
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+/* Card content styles */
+.card-content {
+  padding: 1.5rem;
+  background-color: var(--card-bg-color);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+/* Enhanced status badge */
+.beneficiaries-status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease-in-out;
+}
+
+.beneficiaries-status-badge.active {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.beneficiaries-status-badge.disabled {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Enhanced search input */
+.search-input-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--input-border-color);
+  background-color: var(--input-bg-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  border-color: var(--button-bg-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+/* Enhanced action buttons container */
+.actions-container {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Button styles */
+.action-button {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+}
+
+/* Remove old switch styles as we're using the new component */
+.beneficiaries-switch {
+  display: none;
+}
+
+/* Table wrapper styles */
+.table-wrapper {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: var(--card-bg-color);
+}
+
+/* Empty state message */
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-color);
+  background-color: var(--card-bg-color);
+  border-radius: 1rem;
+}
+
+/* Responsive padding for mobile */
+@media (max-width: 768px) {
+  .beneficiaries-container {
+    padding: 1rem;
+  }
+
+  .card-header,
+  .card-content {
+    padding: 1rem;
+  }
+
+  .table-cell,
+  .table-head {
+    padding: 0.75rem;
+  }
+}
+
+/* Estilos para el grid */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.md\:grid-cols-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Estilos para el contenedor de la tabla principal */
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+/* Estilos para el contenedor de búsqueda */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.left-3 {
+  left: 0.75rem;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
+.translate-y-1\/2 {
+  transform: translateY(-50%);
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.md\:w-96 {
+  width: 24rem;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para el contenedor de acciones */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+/* Estilos para el contenedor de iconos */
+.h-6 {
+  height: 1.5rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.text-blue-500 {
+  color: #3b82f6;
+}
+
+.text-yellow-500 {
+  color: #eab308;
+}
+
+.text-red-500 {
+  color: #ef4444;
+}
+
+/* Estilos para el contenedor de botones de acción */
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.hover\:text-blue-900 {
+  color: #1d4ed8;
+}
+
+.hover\:bg-blue-50 {
+  background-color: #eff6ff;
+}
+
+.text-red-600 {
+  color: #dc2626;
+}
+
+.hover\:text-red-900 {
+  color: #991b1b;
+}
+
+.hover\:bg-red-50 {
+  background-color: #fef2f2;
+}
+
+/* Estilos para el contenedor de switch */
+.data-[state=checked]\:bg-green-500 {
+  background-color: #10b981;
+}
+
+/* Estilos para el contenedor de mensajes */
+.text-center {
+  text-align: center;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+/* Estilos para el contenedor de filas de tabla */
+.col-span-4 {
+  grid-column: span 4;
+}
+
+/* Estilos para el contenedor de filas de tabla */
+.col-span-2 {
+  grid-column: span 2;
+}
+
+/* Estilos para los botones de paginación */
+.pagination-button {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--input-border-color);
+  color: var(--text-color);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.pagination-button.active {
+  background-color: var(--button-bg-color);
+  color: var(--input-bg-color);
+}
+
+.pagination-button:hover {
+  background-color: var(--button-hover-bg-color);
+  color: var(--input-bg-color);
+}
+

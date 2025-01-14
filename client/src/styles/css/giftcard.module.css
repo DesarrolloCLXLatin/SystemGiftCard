@@ -1,0 +1,154 @@
+:root {
+    --gift-card-margin: 1rem;
+    --modal-width: 25rem;
+    --modal-padding: 1.5rem;
+    --spacing-md: 1rem;
+    --border-radius: 30%;
+}
+
+/* Theme Variables */
+.light {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --sidebar-bg: #fff;
+    --sidebar-text: #333;
+    --hover-bg: #ddd;
+    --title-color: #000; /* Color del título en el tema claro */
+}
+
+.dark {
+    --bg-color: #181818;
+    --text-color: #f0f0f0;
+    --sidebar-bg: #333;
+    --sidebar-text: #f0f0f0;
+    --hover-bg: #444;
+    --title-color: #fff; /* Color del título en el tema oscuro */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.giftCardContainer {
+    position: relative;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gift-card-margin);
+    padding: var(--spacing-md);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.giftCardHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.giftCardHeader h1 {
+    font-size: 2rem;
+    color: var(--title-color);
+}
+
+.giftCardHeader h2 {
+    position: relative;
+    right: 110vh;
+    top: 5vh;
+    font-size: 1.5rem;
+    color: var(--title-color);
+}
+
+.giftCardGrid {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    gap: var(--gift-card-margin);
+    width: 100%;
+}
+
+.giftCard {
+    background: transparent !important;
+    box-shadow: none !important;
+    transition: transform 0.2s ease-in-out;
+    flex: 1 1 calc(33.333% - var(--gift-card-margin)); /* Ajusta el ancho de los elementos */
+    max-width: calc(33.333% - var(--gift-card-margin));
+    box-sizing: border-box;
+}
+
+.giftCard:hover {
+    transform: scale(1.05);
+}
+
+.giftCardContent {
+    padding: 1rem !important;
+    background: transparent !important;
+}
+
+.giftCardImage {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.giftCardImage:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el modal */
+.giftCardModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.giftCardModalBox {
+    background: var(--sidebar-bg);
+    border-radius: 12px;
+    padding: var(--modal-padding);
+    width: 90%;
+    max-width: var(--modal-width);
+    position: relative;
+    color: var(--sidebar-text);
+}
+
+.giftCardModalTitle {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.giftCardModalDescription {
+    margin-bottom: 1.5rem;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Estilos para los inputs en el tema oscuro */
+.dark .giftCardModalBox input {
+    color: #fff; /* Cambia el color del texto a blanco */
+}
+
+/* Estilos para el título y subtítulo */
+.giftCardHeader h1, .giftCardHeader h2 {
+    text-align: center;
+    color: var(--title-color);
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .giftCard {
+        flex: 1 1 calc(50% - var(--gift-card-margin)); /* Ajusta el ancho de los elementos para pantallas pequeñas */
+        max-width: calc(50% - var(--gift-card-margin));
+    }
+}

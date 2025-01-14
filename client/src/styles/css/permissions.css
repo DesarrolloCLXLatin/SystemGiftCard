@@ -1,0 +1,327 @@
+:root {
+    --background-color-light: #f9fafb;
+    --background-color-dark: #1a202c;
+    --text-color-light: #1a202c;
+    --text-color-dark: #f9fafb; /* Texto blanco en modo oscuro */
+    --input-text-color-dark: #000000; /* Texto negro en inputs en modo oscuro */
+    --header-bg-light: #fff;
+    --header-bg-dark: #2d3748;
+    --header-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --header-shadow-dark: 0 1px 3px rgba(255, 255, 255, 0.1);
+    --content-bg-light: #fff;
+    --content-bg-dark: #2d3748;
+    --content-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --content-shadow-dark: 0 1px 3px rgba(255, 255, 255, 0.1);
+    --border-color-light: #e2e8f0;
+    --border-color-dark: #4a5568;
+    --tab-active-color-light: #4a5568;
+    --tab-active-color-dark: #f9fafb;
+    --button-bg-light: #4a5568;
+    --button-bg-dark: #f9fafb;
+    --button-hover-bg-light: #2d3748;
+    --button-hover-bg-dark: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .permissions-container {
+    margin-top: 20px;
+    min-height: 100vh;
+    background: transparent;
+    padding: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .permissions-container.dark {
+    background: transparent;
+    color: var(--text-color-dark);
+  }
+  
+  .permissions-header {
+    background: transparent;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-header {
+    background: transparent;
+  }
+  
+  .permissions-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .permissions-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+    transition: color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-title {
+    color: var(--text-color-dark);
+  }
+  
+  .permissions-theme-toggle {
+    background-color: var(--button-bg-light);
+    color: var(--text-color-dark);
+    padding: 10px 15px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-theme-toggle {
+    background-color: var(--button-bg-dark);
+    color: var(--text-color-light);
+  }
+  
+  .permissions-theme-toggle:hover {
+    background-color: var(--button-hover-bg-light);
+  }
+  
+  .permissions-container.dark .permissions-theme-toggle:hover {
+    background-color: var(--button-hover-bg-dark);
+  }
+  
+  .permissions-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .permissions-tabs {
+    border-bottom: 1px solid var(--border-color-light);
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-tabs {
+    border-color: var(--border-color-dark);
+  }
+  
+  .permissions-nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .permissions-tab {
+    padding: 10px 15px;
+    border-bottom: 2px solid transparent;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-tab {
+    color: var(--text-color-dark);
+  }
+  
+  .permissions-tab.active {
+    border-color: var(--tab-active-color-light);
+    color: var(--tab-active-color-light);
+  }
+  
+  .permissions-container.dark .permissions-tab.active {
+    border-color: var(--tab-active-color-dark);
+    color: var(--tab-active-color-dark);
+  }
+  
+  .permissions-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  
+  .permissions-content {
+    background-color: var(--content-bg-light);
+    box-shadow: var(--content-shadow-light);
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-content {
+    background-color: var(--content-bg-dark);
+    box-shadow: var(--content-shadow-dark);
+  }
+  
+  .permissions-table {
+    overflow-x: auto;
+  }
+  
+  .permissions-table table {
+    min-width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .permissions-table th {
+    padding: 12px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+    background-color: var(--content-bg-light);
+    transition: color 0.3s, background-color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-table th {
+    color: var(--text-color-dark);
+    background-color: var(--content-bg-dark);
+  }
+  
+  .permissions-table td {
+    padding: 12px;
+    font-size: 0.875rem;
+    color: var(--text-color-light);
+    border-bottom: 1px solid var(--border-color-light);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-table td {
+    color: var(--text-color-dark);
+    border-color: var(--border-color-dark);
+  }
+  
+  .permissions-status {
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 16px;
+  }
+  
+  .permissions-status.active {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .permissions-status.inactive {
+    background-color: #fecaca;
+    color: #991b1b;
+  }
+  
+  .permissions-edit-button {
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-edit-button {
+    color: var(--text-color-dark);
+  }
+  
+  .permissions-edit-button:hover {
+    color: var(--tab-active-color-light);
+  }
+  
+  .permissions-container.dark .permissions-edit-button:hover {
+    color: var(--tab-active-color-dark);
+  }
+  
+  .permissions-delete-button {
+    color: #e53e3e;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .permissions-delete-button:hover {
+    color: #c53030;
+  }
+  
+  .permissions-form {
+    margin-top: 20px;
+  }
+  
+  .permissions-form h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+    margin-bottom: 10px;
+    transition: color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-form h2 {
+    color: var(--text-color-dark);
+  }
+  
+  .permissions-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .permissions-form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+    margin-bottom: 5px;
+    transition: color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-form-group label {
+    color: var(--text-color-dark);
+  }
+  
+  .permissions-form-group input,
+  .permissions-form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.875rem;
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 4px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-form-group input,
+  .permissions-container.dark .permissions-form-group select {
+    color: var(--input-text-color-dark); /* Texto negro en inputs en modo oscuro */
+    border-color: var(--border-color-dark);
+  }
+  
+  .permissions-form-group input:focus,
+  .permissions-form-group select:focus {
+    border-color: var(--tab-active-color-light);
+    outline: none;
+  }
+  
+  .permissions-container.dark .permissions-form-group input:focus,
+  .permissions-container.dark .permissions-form-group select:focus {
+    border-color: var(--tab-active-color-dark);
+  }
+  
+  .permissions-save-button {
+    background-color: var(--button-bg-light);
+    color: var(--text-color-dark);
+    padding: 10px 15px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .permissions-container.dark .permissions-save-button {
+    background-color: var(--button-bg-dark);
+    color: var(--text-color-light);
+  }
+  
+  .permissions-save-button:hover {
+    background-color: var(--button-hover-bg-light);
+  }
+  
+  .permissions-container.dark .permissions-save-button:hover {
+    background-color: var(--button-hover-bg-dark);
+  }
+  

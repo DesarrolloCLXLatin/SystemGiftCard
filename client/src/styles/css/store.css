@@ -1,0 +1,192 @@
+/* Importar la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variables de color para temas claro y oscuro */
+:root {
+  --bg-color: #f9fafb;
+  --text-color: #1f2937;
+  --card-bg-color: #ffffff;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-bg-color: #3b82f6;
+  --button-hover-bg-color: #2563eb;
+  --input-bg-color: #ffffff;
+  --input-border-color: #d1d5db;
+  --table-header-bg-color: #f3f4f6;
+  --table-row-hover-bg-color: #f9fafb;
+  --switch-bg-color-active: #10b981;
+  --switch-bg-color-disabled: #ef4444;
+  --pagination-bg-color: #007bff;
+  --pagination-hover-bg-color: #0056b3;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1f2937;
+  --text-color: #f9fafb;
+  --card-bg-color: #374151;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --button-bg-color: #3b82f6;
+  --button-hover-bg-color: #2563eb;
+  --input-bg-color: #374151;
+  --input-border-color: #4b5563;
+  --table-header-bg-color: #4b5563;
+  --table-row-hover-bg-color: #374151;
+  --switch-bg-color-active: #10b981;
+  --switch-bg-color-disabled: #ef4444;
+  --pagination-bg-color: #007bff;
+  --pagination-hover-bg-color: #0056b3;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.store-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos para la tabla */
+.store-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  background-color: var(--card-bg-color);
+}
+
+.store-table th,
+.store-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--input-border-color);
+}
+
+.store-table th {
+  background-color: var(--table-header-bg-color);
+  font-weight: 600;
+}
+
+.store-table tr:nth-child(even) {
+  background-color: var(--table-row-hover-bg-color);
+}
+
+.store-table tr:hover {
+  background-color: var(--table-row-hover-bg-color);
+}
+
+/* Estilos para la paginación */
+.store-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.store-pagination button {
+  padding: 8px 12px;
+  margin: 0 2px;
+  border: 1px solid var(--input-border-color);
+  background-color: var(--input-bg-color);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.store-pagination button:hover {
+  background-color: var(--pagination-hover-bg-color);
+  color: var(--bg-color);
+}
+
+.store-pagination button.active {
+  background-color: var(--pagination-bg-color);
+  color: var(--bg-color);
+  border-color: var(--pagination-bg-color);
+}
+
+.store-pagination button.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Estilos para botones */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-bg-color);
+  color: var(--bg-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+/* Estilos para entradas de texto */
+.input {
+  padding: 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilos para interruptores */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--switch-bg-color-disabled);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--bg-color);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--switch-bg-color-active);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--switch-bg-color-active);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
